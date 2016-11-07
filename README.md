@@ -46,6 +46,7 @@ functions
 <tr><td>anyarray_remove_null(anyarray)</td><td>anyarray</td><td>Returns an array with all occurrences of NULL omitted.</td></tr>
 <tr><td>anyarray_sort(anyarray)</td><td>anyarray</td><td>Returns the array, sorted.</td></tr>
 <tr><td>anyarray_uniq(anyarray)</td><td>anyarray</td><td>Returns an array of unique values present within the array passed.</td></tr>
+<tr><td>anyarray_from_json(json)</td><td>anyarray</td><td>Converts a JSON array into a text array.</td></tr>
 </tbody></table>
 
 aggregates
@@ -239,6 +240,9 @@ FROM (VALUES
 	('b', ARRAY[7,8])
 ) AS data (id, list)
 GROUP BY id</pre></td><td>text, integer[]</td><td><pre>'a', {{1,2},{3,4}}<br/>'b', {{5,6},{7,8}}</pre></td></tr>
+
+<tr><td><pre>SELECT anyarray_from_json('["one", "two", "three"]')</pre></td><td>text[]</td><td><pre>{one,two,three}</pre></td></tr>
+
 </tbody></table>
 
 Donations
